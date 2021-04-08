@@ -1,0 +1,716 @@
+// ROOT
+:root {
+    --clr-primary: #000;
+    --clr-secondary: #57b8d5;
+
+    --clr-header: #012343;
+
+    --clr-white: #fff;
+    --clr-black: #000;
+
+    // --font-segoe: "segoe";
+}
+
+// LAYOUT
+// Colors
+$colors: (
+    "primary": var(--clr-primary),
+    "secondary": var(--clr-secondary),
+    "header": var(--clr-header),
+    "white": var(--clr-white),
+    "black": var(--clr-black),
+);
+
+// Container
+$media: (
+    "media-991": 991px,
+);
+
+// Box Sizing
+$box-sizing: (
+    "border": border-box,
+    "content": content-box,
+);
+
+// Display
+$display: (
+    "block": block,
+    // "inline-block": inline-block,
+    "inline": inline,
+    "flex": flex,
+    // "inline-flex": inline-flex,
+    // "table": table,
+    // "table-caption": table-caption,
+    // "table-cell": table-cell,
+    // "table-column": table-column,
+    // "table-column-group": table-column-group,
+    // "table-footer-group": table-footer-group,
+    // "table-header-group": table-header-group,
+    // "table-row-group": table-row-group,
+    // "table-row": table-row,
+    // "flow-root": flow-root,
+    "grid": grid,
+    // "inline-grid": inline-grid,
+    // "contents": contents,
+    "hidden": none,
+);
+
+// Floats
+$floats: (
+    // "float-right": right,
+    // "float-left": left,
+    // "float-none": none,
+);
+
+// Clear
+$clear: (
+    // "clear-left": left,
+    // "clear-right": right,
+    // "clear-both": both,
+    // "clear-none": none,
+);
+
+// Object Fit
+$object-fit: (
+    "object-contain": contain,
+    "object-cover": cover,
+    // "object-fill": fill,
+    // "object-none": none,
+    "object-scale-down": scale-down,
+);
+
+// Object Position
+$object-position: (
+    // "object-bottom": bottom,
+    // "object-center": center,
+    // "object-left": left,
+    // "object-left-bottom": left bottom,
+    // "object-left-top": left top,
+    // "object-right": right,
+    // "object-right-bottom": right bottom,
+    // "object-right-top": right top,
+    // "object-top": top,
+);
+
+// Overflow
+$overflow: (
+    "overflow-auto": auto,
+    "overflow-hidden": hidden,
+    "overflow-visible": visible,
+    "overflow-scroll": scroll,
+    "overflow-x-auto": auto,
+    "overflow-y-auto": auto,
+    "overflow-x-hidden": hidden,
+    "overflow-y-hidden": hidden,
+    "overflow-x-visible": visible,
+    "overflow-y-visible": visible,
+    "overflow-x-scroll": scroll,
+    "overflow-y-scroll": scroll,
+);
+
+// Overscroll Behavior
+$overscroll-behavior: (
+    // "overscroll-auto": auto,
+    // "overscroll-contain": contain,
+    // "overscroll-none": none,
+    // "overscroll-y-auto": auto,
+    // "overscroll-y-contain": contain,
+    // "overscroll-y-none": none,
+    // "overscroll-x-auto": auto,
+    // "overscroll-x-contain": contain,
+    // "overscroll-x-none": none,
+);
+
+// Position
+$position: (
+    "static": static,
+    "fixed": fixed,
+    "absolute": absolute,
+    "relative": relative,
+    "sticky": sticky,
+);
+
+// Position Settings
+$position-values: (
+    "t-0": 0,
+    "r-0": 0,
+    "b-0": 0,
+    "l-0": 0,
+);
+
+// Z-Index
+$z-index: (
+    "z-auto": auto,
+    "-z-1": -1,
+    "z-0": 0,
+    "z-1": 1,
+);
+
+// Visibility
+$visibility: (
+    "visible": visible,
+    "invisible": hidden,
+);
+
+// FLEXBOX
+// Flex Direction
+$flex-direction: (
+    "flex-row": row,
+    "flex-row-reverse": row-reverse,
+    "flex-col": column,
+    "flex-col-reverse": column-reverse,
+);
+
+// Flex Wrap
+$flex-wrap: (
+    "flex-wrap": wrap,
+    "flex-wrap-reverse": wrap-reverse,
+    "flex-nowrap": nowrap,
+);
+
+// Flex
+$flex: (
+    "flex-1": 1 1 0%,
+    "flex-auto": 1 1 auto,
+    "flex-initial": 0 1 auto,
+    "flex-none": none,
+);
+
+// Flex Grow
+$flex-grow: (
+    "flex-grow-0": 0,
+    "flex-grow": 1,
+);
+
+// Flex Shrink
+$flex-shrink: (
+    "flex-shrink-0": 0,
+    "flex-shrink": 1,
+);
+
+// Order
+$order: (
+    "-order-1": -1,
+    "order-0": 0,
+    "order-1": 1,
+);
+
+// GRID
+// Grid Template Columns
+$grid-template-columns: (
+    "grid-cols-none": none,
+    "grid-cols-1": 1,
+    "grid-cols-2": 2,
+    "grid-cols-3": 3,
+    "grid-cols-4": 4,
+    "grid-cols-5": 5,
+    "grid-cols-auto-fit-360": repeat(auto-fit, minmax(360px, 1fr)),
+);
+
+// Grid Column Start / End
+$col-span: (
+    "col-span-full": 1 / -1,
+);
+
+// Grid Template Rows
+$grid-template-rows: (
+    "grid-rows-1": 1,
+    "grid-rows-2": 2,
+    "grid-rows-3": 3,
+    "grid-rows-4": 4,
+    "grid-rows-5": 5,
+    "grid-rows-none": none,
+);
+
+// Grid Row Start / End
+$row-span: (
+    "row-span-full": 1 / -1,
+);
+
+// Grid Auto Flow
+$grid-flow: ();
+
+// Grid Auto Columns
+$auto-cols: ();
+
+// Grid Auto Rows
+$auto-rows: ();
+
+// Gap
+$gap: (
+    "1": 1px,
+    "x-1": 1px,
+    "y-1": 1px,
+);
+
+// BOX ALIGNMENT
+// Justify Content
+$justify-content: (
+    "justify-start": flex-start,
+    "justify-end": flex-end,
+    "justify-center": center,
+    "justify-between": space-between,
+    "justify-around": space-around,
+    "justify-evenly": space-evenly,
+);
+
+// Justify Items
+$justify-items: (
+    "justify-items-auto": auto,
+    "justify-items-start": start,
+    "justify-items-end": end,
+    "justify-items-center": center,
+    "justify-items-stretch": stretch,
+);
+
+// Justify Self
+$justify-self: (
+    "justify-self-auto": auto,
+    "justify-self-start": start,
+    "justify-self-end": end,
+    "justify-self-center": center,
+    "justify-self-stretch": stretch,
+);
+
+// Align Content
+$align-content: (
+    "content-center": center,
+    "content-start": flex-start,
+    "content-end": flex-end,
+    "content-between": space-between,
+    "content-around": space-around,
+    "content-evenly": space-evenly,
+);
+
+// Align Items
+$align-items: (
+    "items-start": flex-start,
+    "items-end": flex-end,
+    "items-center": center,
+    "items-baseline": baseline,
+    "items-stretch": stretch,
+);
+
+// Align Self
+$align-self: (
+    "self-auto": auto,
+    "self-start": flex-start,
+    "self-end": flex-end,
+    "self-center": center,
+    "self-stretch": stretch,
+);
+
+// Place Content
+$place-content: (
+    "place-content-center": center,
+    "place-content-start": start,
+    "place-content-end": end,
+    "place-content-between": space-between,
+    "place-content-around": space-around,
+    "place-content-evenly": space-evenly,
+    "place-content-stretch": stretch,
+);
+
+// Place Items
+$place-items: (
+    "place-items-auto": auto,
+    "place-items-start": start,
+    "place-items-end": end,
+    "place-items-center": center,
+    "place-items-stretch": stretch,
+);
+
+// Place Self
+$place-self: (
+    "place-self-auto": auto,
+    "place-self-start": start,
+    "place-self-end": end,
+    "place-self-center": center,
+    "place-self-stretch": stretch,
+);
+
+// Padding
+$padding: (
+    "0": 0,
+    "1": 1px,
+    "10": 10px,
+    "y-1": 1px,
+    "y-20": 20px,
+    "y-80": 80px,
+    "x-1": 1px,
+    "x-20": 20px,
+    "t-1": 1px,
+    "r-1": 1px,
+    "b-1": 1px,
+    "l-1": 1px,
+);
+
+// Margin
+$margin: (
+    "auto": auto,
+    "1": 1px,
+    "y-1": 1px,
+    "x-1": 1px,
+    "t-1": 1px,
+    "r-1": 1px,
+    "b-1": 1px,
+    "l-1": 1px,
+);
+
+// Space Between
+$space-between: ();
+
+// SIZING
+// Width
+$width: (
+    "full": 100%,
+    "1": 1px,
+);
+
+// Min-Width
+$min-width: (
+    "1": 1px,
+);
+
+// Max-Width
+$max-width: (
+    "full": 100%,
+    "1": 1px,
+    "600": 600px,
+);
+
+// Height
+$height: (
+    "screen": 100vh,
+    "full": 100%,
+    "1": 1px,
+    "44": 44px,
+);
+
+// Min-Height
+$min-height: (
+    "1": 1px,
+);
+
+// Max-Height
+$max-height: (
+    "1": 1px,
+    "full": 100%,
+);
+
+// TYPOGRAPHY
+// Font Faces
+// $font-faces: (
+// 	"segoe": url("/CMS/site/fonts/Segoe-UI/segoeui.ttf") format("truetype"),
+// 	"acid": url("/CMS/site/fonts/AC-Compacta/AC-Compacta.otf") format("opentype"),
+// );
+
+// Font Family
+$font: (
+    "segoe": var(--font-segoe),
+    "acid": var(--font-acid),
+);
+
+// Font Size
+$font-size: (
+    "10": 10px,
+    "12": 12px,
+    "13": 13px,
+    "14": 14px,
+    "16": 16px,
+    "18": 18px,
+    "20": 20px,
+    "22": 22px,
+    "24": 24px,
+    "25": 25px,
+    "28": 28px,
+    "30": 30px,
+    "32": 32px,
+    "40": 40px,
+    "46": 46px,
+    "48": 48px,
+    "50": 50px,
+    "65": 65px,
+    "79": 79px,
+    "100": 100px,
+    "200": 200px,
+    "clamp-200-to-50": clamp(50px, 10vw, 200px),
+);
+
+// Font Smoothing
+$font-smoothing: (
+    "antialiased": antialiased,
+    "subpixel-antialiased": subpixel-antialiased,
+);
+
+// Font Style
+$font-style: (
+    "italic": italic,
+    "not-italic": normal,
+);
+
+// Font Weight
+$font-weight: (
+    "font-thin": 100,
+    "font-extralight": 200,
+    "font-light": 300,
+    "font-normal": 400,
+    "font-medium": 500,
+    "font-semibold": 600,
+    "font-bold": 700,
+    "font-extrabold": 800,
+    "font-black": 900,
+);
+
+// Font Variant Numeric
+$font-variant: ();
+
+// Letter Spacing
+$letter-spacing: ();
+
+// Line Height
+$line-height: (
+    "24": 24px,
+    "31": 31px,
+);
+
+// List Style Type
+$list-style-type: (
+    "list-none": none,
+    "list-disc": disc,
+    "list-decimal": decimal,
+);
+
+// List Style Position
+$list-style-position: ();
+
+// Placeholder Color
+$placeholder-color: ();
+
+// Placeholder Opacity
+$placeholder-opacity: ();
+
+// Text Alignment
+$text-align: (
+    "text-left": left,
+    "text-center": center,
+    "text-right": right,
+    "text-justify": justify,
+);
+
+// Text Color
+$text-color: ("loop over colors");
+
+// Text Opacity
+$text-opacity: (
+    "text-opacity-0": 0,
+    "text-opacity-5": 0.5,
+);
+
+// Text Decoration
+$text-decoration: (
+    "underline": underline,
+    "line-through": line-through,
+    "no-underline": none,
+);
+
+// Text Transform
+$text-transform: (
+    "uppercase": uppercase,
+    "lowercase": lowercase,
+    "capitalize": capitalize,
+    "normal-case": none,
+);
+
+// Text Overflow
+$text-overflow: ();
+
+// Vertical Alignment
+$vertical-align: ();
+
+// Whitespace
+$whitespace: (
+    "whitespace-normal": normal,
+    "whitespace-nowrap": nowrap,
+    "whitespace-pre": pre,
+    "whitespace-pre-line": pre-line,
+    "whitespace-pre-wrap": pre-wrap,
+);
+
+// Word Break
+$word-break: (
+    "break-normal": normal,
+    "break-words": break-word,
+    "break-all": break-all,
+);
+
+// BACKGROUNDS
+// Background Attachment
+$background-attachment: (
+    "bg-fixed": fixed,
+    // "bg-local": local,
+    "bg-scroll": scroll,
+);
+
+// Background Clip
+$background-clip: ();
+
+// Background Color
+$background-color: ("from colors");
+
+// Background Opacity
+$background-opacity: ();
+
+// Background Position
+$background-position: (
+    "bg-bottom": bottom,
+    "bg-center": center,
+    "bg-left": left,
+    "bg-left-bottom": left bottom,
+    "bg-left-top": left top,
+    "bg-right": right,
+    "bg-right-bottom": right bottom,
+    "bg-right-top": right top,
+    "bg-top": top,
+);
+
+// Background Repeat
+$background-repeat: (
+    "bg-repeat": repeat,
+    "bg-no-repeat": no-repeat,
+    "bg-repeat-x": repeat-x,
+    "bg-repeat-y": repeat-y,
+    "bg-repeat-round": round,
+    "bg-repeat-space": space,
+);
+
+// Background Size
+$background-size: (
+    "bg-auto": auto,
+    "bg-cover": cover,
+    "bg-contain": contain,
+);
+
+// Background Image
+$background-image: (
+    "bg-none": none,
+);
+
+// Gradient Color Stops
+$gradient-color-stops: ();
+
+// BORDERS
+// Border Radius
+$border-radius: (
+    "none": 0,
+    "full": 50%,
+    "1": 1px,
+    "t-1": 1px,
+    "r-1": 1px,
+    "b-1": 1px,
+    "l-1": 1px,
+    "tl-1": 1px,
+    "tr-1": 1px,
+    "br-1": 1px,
+    "bl-1": 1px,
+);
+
+// Border Width
+$border-width: (
+    "1": 1px,
+    "t-1": 1px,
+    "r-1": 1px,
+    "b-1": 1px,
+    "l-1": 1px,
+);
+
+// Border Color
+$border-color: ("loop ocer colors");
+
+// Border Opacity
+$border-opacity: ();
+
+// Border Style
+$border-style: (
+    "border-solid": solid,
+    "border-dashed": dashed,
+    "border-dotted": dotted,
+    "border-double": double,
+    "border-none": none,
+);
+
+// EFFECTS
+// Box Shadow
+$box-shadow: (
+    "default": 0 0 3px 0 rgba(0, 0, 0, 0.2),
+    "bottom": 0 2px 3px 0 rgba(0, 0, 0, 0.08),
+    "right": 1px 0 3px 0 rgba(0, 0, 0, 0.08),
+);
+
+// Blend Modes
+$blend-mode: (
+    "multiply": multiply,
+);
+
+// Opacity
+$opacity: (
+    "opacity-0": 0,
+    "opacity-5": 0.05,
+    "opacity-10": 0.1,
+    "opacity-20": 0.2,
+    "opacity-25": 0.25,
+    "opacity-30": 0.3,
+    "opacity-40": 0.4,
+    "opacity-50": 0.5,
+    "opacity-60": 0.6,
+    "opacity-70": 0.7,
+    "opacity-75": 0.75,
+    "opacity-80": 0.8,
+    "opacity-90": 0.9,
+    "opacity-95": 0.95,
+    "opacity-100": 1,
+);
+
+// TRANSITIONS AND ANIMATION
+// Transition Property
+$transition: (
+    "default": 80ms linear,
+);
+
+// Transition Directions
+$transition-directions: (
+    "t": top,
+    "r": right,
+    "b": bottom,
+    "l": left,
+);
+
+// HOVERS
+// Hover Colors
+$hover-colors: ("loop over colors");
+
+// Hover Opacity
+$hover-opacity: (
+    "opacity-70": 0.7,
+);
+
+// INTERACTIVITY
+// Cursor
+$cursor: (
+    "cursor-auto": auto,
+    "cursor-default": default,
+    "cursor-pointer": pointer,
+    "cursor-wait": wait,
+    "cursor-text": text,
+    "cursor-move": move,
+    "cursor-help": help,
+    "cursor-not-allowed": not-allowed,
+);
+
+// User Select
+$user-select: (
+    "select-none": none,
+    "select-text": text,
+    "select-all": all,
+    "select-auto": auto,
+);

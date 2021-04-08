@@ -1,0 +1,989 @@
+// LAYOUT
+// Colors
+@each $color-prop, $color-value in $colors {
+	.text-#{$color-prop} {
+		color: $color-value;
+	}
+
+	.bg-#{$color-prop} {
+		background-color: $color-value;
+	}
+
+	.border-#{$color-prop} {
+		border-color: $color-value;
+	}
+
+	.hover\:text-#{$color-prop}:hover {
+		color: $color-value;
+	}
+}
+
+// Box Sizing
+@each $box-sizing-prop, $box-sizing-value in $box-sizing {
+	.box-#{$box-sizing-prop} {
+		box-sizing: $box-sizing-value;
+	}
+}
+
+// Display
+@each $display-prop, $display-value in $display {
+	.#{$display-prop} {
+		display: $display-value;
+	}
+}
+
+// Object Fit
+@each $object-fit-prop, $object-fit-value in $object-fit {
+	.#{$object-fit-prop} {
+		-o-object-fit: $object-fit-value;
+		object-fit: $object-fit-value;
+	}
+}
+
+// Overflow
+@each $overflow-prop, $overflow-value in $overflow {
+	@if $overflow-prop == "overflow-x-auto" or $overflow-prop == "overflow-x-hidden" or $overflow-prop == "overflow-x-visible" or $overflow-prop == "overflow-x-scroll" {
+		.#{$overflow-prop} {
+			overflow-x: $overflow-value;
+		}
+	} @else if $overflow-prop == "overflow-y-auto" or $overflow-prop == "overflow-y-hidden" or $overflow-prop == "overflow-y-visible" or $overflow-prop == "overflow-y-scroll" {
+		.#{$overflow-prop} {
+			overflow-y: $overflow-value;
+		}
+	} @else {
+		.#{$overflow-prop} {
+			overflow: $overflow-value;
+		}
+	}
+}
+
+// Position
+@each $position-prop, $position-value in $position {
+	.#{$position-prop} {
+		position: $position-value;
+	}
+}
+
+// Position Settings
+@each $position-values-prop, $position-values-value in $position-values {
+	$param: str-slice(#{$position-values-prop}, 1, 2);
+
+	@if $param == "t-" {
+		.#{$position-values-prop} {
+			top: $position-values-value;
+		}
+	} @else if $param == "-t" {
+		$new-prop: str-slice(#{$position-values-prop}, 2, -1);
+
+		.-#{$new-prop} {
+			top: $position-values-value;
+		}
+	} @else if $param == "r-" {
+		.#{$position-values-prop} {
+			right: $position-values-value;
+		}
+	} @else if $param == "-r" {
+		$new-prop: str-slice(#{$position-values-prop}, 2, -1);
+
+		.-#{$new-prop} {
+			right: $position-values-value;
+		}
+	} @else if $param == "b-" {
+		.#{$position-values-prop} {
+			bottom: $position-values-value;
+		}
+	} @else if $param == "-b" {
+		$new-prop: str-slice(#{$position-values-prop}, 2, -1);
+
+		.-#{$new-prop} {
+			bottom: $position-values-value;
+		}
+	} @else if $param == "l-" {
+		.#{$position-values-prop} {
+			left: $position-values-value;
+		}
+	} @else if $param == "-l" {
+		$new-prop: str-slice(#{$position-values-prop}, 2, -1);
+
+		.-#{$new-prop} {
+			left: $position-values-value;
+		}
+	}
+}
+
+// Z-Index
+@each $z-index-prop, $z-index-value in $z-index {
+	.#{$z-index-prop} {
+		z-index: $z-index-value;
+	}
+}
+
+// Visibility
+@each $visibility-prop, $visibility-value in $visibility {
+	.#{$visibility-prop} {
+		visibility: $visibility-value;
+	}
+}
+
+// FLEXBOX
+// Flex Direction
+@each $flex-direction-prop, $flex-direction-value in $flex-direction {
+	.#{$flex-direction-prop} {
+		flex-direction: $flex-direction-value;
+	}
+}
+
+// Flex Wrap
+@each $flex-wrap-prop, $flex-wrap-value in $flex-wrap {
+	.#{$flex-wrap-prop} {
+		flex-wrap: $flex-wrap-value;
+	}
+}
+
+// Flex
+@each $flex-prop, $flex-value in $flex {
+	.#{$flex-prop} {
+		flex: $flex-value;
+	}
+}
+
+// Flex Grow
+@each $flex-grow-prop, $flex-grow-value in $flex-grow {
+	.#{$flex-grow-prop} {
+		flex-grow: $flex-grow-value;
+	}
+}
+
+// Flex Shrink
+@each $flex-shrink-prop, $flex-shrink-value in $flex-shrink {
+	.#{$flex-shrink-prop} {
+		flex-shrink: $flex-shrink-value;
+	}
+}
+
+// Order
+@each $order-prop, $order-value in $order {
+	.#{$order-prop} {
+		order: $order-value;
+	}
+}
+
+// GRID
+// Grid Template Columns
+@each $grid-template-columns-prop, $grid-template-columns-value in $grid-template-columns {
+	$param: str-slice(#{$grid-template-columns-prop}, 1, 18);
+
+	@if $param == "grid-cols-auto-fit" {
+		.#{$grid-template-columns-prop} {
+			grid-template-columns: $grid-template-columns-value;
+		}
+	} @else {
+		@if $grid-template-columns-prop == "grid-cols-none" {
+			.#{$grid-template-columns-prop} {
+				grid-template-columns: none;
+			}
+		} @else {
+			.#{$grid-template-columns-prop} {
+				grid-template-columns: repeat($grid-template-columns-value, minmax(0, 1fr));
+			}
+		}
+	}
+}
+
+// Grid Column Start / End
+@each $col-span-prop, $col-span-value in $col-span {
+	@if $col-span-prop == "col-span-full" {
+		.#{$col-span-prop} {
+			grid-column: 1 / -1;
+		}
+	} @else {
+		.#{$col-span-prop} {
+			grid-column: $col-span-value;
+		}
+	}
+}
+
+// Grid Template Rows
+@each $grid-template-rows-prop, $grid-template-rows-value in $grid-template-rows {
+	@if $grid-template-rows-prop == "grid-rows-none" {
+		.#{$grid-template-rows-prop} {
+			grid-template-rows: none;
+		}
+	} @else {
+		.#{$grid-template-rows-prop} {
+			grid-template-rows: repeat($grid-template-rows-value, minmax(0, 1fr));
+		}
+	}
+}
+
+// Grid Row Start / End
+@each $row-span-prop, $row-span-value in $row-span {
+	@if $row-span-prop == "row-span-full" {
+		.#{$row-span-prop} {
+			grid-row: 1 / -1;
+		}
+	} @else {
+		.#{$row-span-prop} {
+			grid-row: $row-span-value;
+		}
+	}
+}
+
+// Gap
+@each $gap-prop, $gap-value in $gap {
+	$param: str-slice(#{$gap-prop}, 1, 2);
+
+	@if $param == "x-" {
+		.gap-#{$gap-prop} {
+			-moz-column-gap: $gap-value;
+			column-gap: $gap-value;
+		}
+	} @else if $param == "y-" {
+		.gap-#{$gap-prop} {
+			row-gap: $gap-value;
+		}
+	} @else {
+		.gap-#{$gap-prop} {
+			gap: $gap-value;
+		}
+	}
+}
+
+// BOX ALIGNMENT
+// Justify Content
+@each $justify-content-prop, $justify-content-value in $justify-content {
+	.#{$justify-content-prop} {
+		justify-content: $justify-content-value;
+	}
+}
+
+// Justify Items
+@each $justify-items-prop, $justify-items-value in $justify-items {
+	.#{$justify-items-prop} {
+		justify-items: $justify-items-value;
+	}
+}
+
+// Justify Self
+@each $justify-self-prop, $justify-self-value in $justify-self {
+	.#{$justify-self-prop} {
+		justify-self: $justify-self-value;
+	}
+}
+
+// Align Content
+@each $align-content-prop, $align-content-value in $align-content {
+	.#{$align-content-prop} {
+		align-content: $align-content-value;
+	}
+}
+
+// Align Items
+@each $align-items-prop, $align-items-value in $align-items {
+	.#{$align-items-prop} {
+		align-items: $align-items-value;
+	}
+}
+
+// Align Self
+@each $align-self-prop, $align-self-value in $align-self {
+	.#{$align-self-prop} {
+		align-self: $align-self-value;
+	}
+}
+
+// Place Content
+@each $place-content-prop, $place-content-value in $place-content {
+	.#{$place-content-prop} {
+		place-content: $place-content-value;
+	}
+}
+
+// Place Items
+@each $place-items-prop, $place-items-value in $place-items {
+	.#{$place-items-prop} {
+		place-items: $place-items-value;
+	}
+}
+
+// Place Self
+@each $place-self-prop, $place-self-value in $place-self {
+	.#{$place-self-prop} {
+		place-self: $place-self-value;
+	}
+}
+
+// SPACING
+// Padding
+@each $padding-prop, $padding-value in $padding {
+	$param: str-slice(#{$padding-prop}, 1, 2);
+
+	@if $param == "y-" {
+		.p#{$padding-prop} {
+			padding-top: $padding-value;
+			padding-bottom: $padding-value;
+		}
+	} @else if $param == "x-" {
+		.p#{$padding-prop} {
+			padding-left: $padding-value;
+			padding-right: $padding-value;
+		}
+	} @else if $param == "t-" {
+		.p#{$padding-prop} {
+			padding-top: $padding-value;
+		}
+	} @else if $param == "r-" {
+		.p#{$padding-prop} {
+			padding-right: $padding-value;
+		}
+	} @else if $param == "b-" {
+		.p#{$padding-prop} {
+			padding-bottom: $padding-value;
+		}
+	} @else if $param == "l-" {
+		.p#{$padding-prop} {
+			padding-left: $padding-value;
+		}
+	} @else {
+		.p-#{$padding-prop} {
+			padding: $padding-value;
+		}
+	}
+}
+
+// Margin
+@each $margin-prop, $margin-value in $margin {
+	$param: str-slice(#{$margin-prop}, 1, 2);
+
+	@if $param == "y-" {
+		.m#{$margin-prop} {
+			margin-top: $margin-value;
+			margin-bottom: $margin-value;
+		}
+	} @else if $param == "x-" {
+		.m#{$margin-prop} {
+			margin-left: $margin-value;
+			margin-right: $margin-value;
+		}
+	} @else if $param == "t-" {
+		.m#{$margin-prop} {
+			margin-top: $margin-value;
+		}
+	} @else if $param == "-t" {
+		$new-prop: str-slice(#{$margin-prop}, 2, -1);
+
+		.-m#{$new-prop} {
+			margin-top: $margin-value;
+		}
+	} @else if $param == "r-" {
+		.m#{$margin-prop} {
+			margin-right: $margin-value;
+		}
+	} @else if $param == "-r" {
+		$new-prop: str-slice(#{$margin-prop}, 2, -1);
+
+		.-m#{$new-prop} {
+			margin-right: $margin-value;
+		}
+	} @else if $param == "b-" {
+		.m#{$margin-prop} {
+			margin-bottom: $margin-value;
+		}
+	} @else if $param == "-b" {
+		$new-prop: str-slice(#{$margin-prop}, 2, -1);
+
+		.-m#{$new-prop} {
+			margin-bottom: $margin-value;
+		}
+	} @else if $param == "l-" {
+		.m#{$margin-prop} {
+			margin-left: $margin-value;
+		}
+	} @else if $param == "-l" {
+		$new-prop: str-slice(#{$margin-prop}, 2, -1);
+
+		.-m#{$new-prop} {
+			margin-left: $margin-value;
+		}
+	} @else if $param == "au" {
+		.mx-#{$margin-prop} {
+			margin-left: $margin-value;
+			margin-right: $margin-value;
+		}
+	} @else {
+		.m-#{$margin-prop} {
+			margin: $margin-value;
+		}
+	}
+}
+
+// SIZING
+// Width
+@each $width-prop, $width-value in $width {
+	.w-#{$width-prop} {
+		width: $width-value;
+	}
+}
+
+// Min-Width
+@each $min-width-prop, $min-width-value in $min-width {
+	.min-w-#{$min-width-prop} {
+		min-width: $min-width-value;
+	}
+}
+
+// Max-Width
+@each $max-width-prop, $max-width-value in $max-width {
+	.max-w-#{$max-width-prop} {
+		max-width: $max-width-value;
+	}
+}
+
+// Height
+@each $height-prop, $height-value in $height {
+	.h-#{$height-prop} {
+		height: $height-value;
+	}
+}
+
+// Min-Height
+@each $min-height-prop, $min-height-value in $min-height {
+	.min-h-#{$min-height-prop} {
+		min-height: $min-height-value;
+	}
+}
+
+// Max-Height
+@each $max-height-prop, $max-height-value in $max-height {
+	.max-h-#{$max-height-prop} {
+		max-height: $max-height-value;
+	}
+}
+
+// TYPOGRAPHY
+// Font Faces
+// @each $font-faces-prop, $font-faces-value in $font-faces {
+// 	@font-face {
+// 		font-family: $font-faces-prop;
+// 		src: $font-faces-value;
+// 	}
+// }
+
+// Font Family
+@each $font-prop, $font-value in $font {
+	.font-#{$font-prop} {
+		font-family: $font-value;
+	}
+}
+
+// Font Size
+@each $font-size-prop, $font-size-value in $font-size {
+	$param: str-slice(#{$font-size-prop}, 1, 5);
+
+	@if $param == "clamp" {
+		.text-#{$font-size-prop} {
+			font-size: $font-size-value;
+		}
+	} @else {
+		.text-#{$font-size-prop} {
+			font-size: $font-size-value;
+		}
+	}
+}
+
+// Font Smoothing
+@each $font-smoothing-prop, $font-smoothing-value in $font-smoothing {
+	@if $font-smoothing-prop == "antialiased" {
+		.#{$font-smoothing-prop} {
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	} @else if $font-smoothing-prop == "subpixel-antialiased" {
+		.#{$font-smoothing-prop} {
+			-webkit-font-smoothing: auto;
+			-moz-osx-font-smoothing: auto;
+		}
+	}
+}
+
+// Font Style
+@each $font-style-prop, $font-style-value in $font-style {
+	.#{$font-style-prop} {
+		font-style: $font-style-value;
+	}
+}
+
+// Font Weight
+@each $font-weight-prop, $font-weight-value in $font-weight {
+	.#{$font-weight-prop} {
+		font-weight: $font-weight-value;
+	}
+}
+
+// Line Height
+@each $line-height-prop, $line-height-value in $line-height {
+	.leading-#{$line-height-prop} {
+		line-height: $line-height-value;
+	}
+}
+
+// List Style Type
+@each $list-style-type-prop, $list-style-type-value in $list-style-type {
+	.#{$list-style-type-prop} {
+		list-style-type: $list-style-type-value;
+	}
+}
+
+// Text Alignment
+@each $text-align-prop, $text-align-value in $text-align {
+	.#{$text-align-prop} {
+		text-align: $text-align-value;
+	}
+}
+
+// Text Opacity
+// @each $text-opacity-prop, $text-opacity-value in $text-opacity {
+// 	.#{$text-opacity-prop} {
+// 	}
+// }
+
+// TRANSITIONS AND ANIMATION
+// Transition Property
+@each $transition-prop, $transition-value in $transition {
+	@each $transition-directions-prop, $transition-directions-value in $transition-directions {
+		.transition-#{$transition-prop}-#{$transition-directions-prop} {
+			transition: $transition-directions-value $transition-value;
+		}
+	}
+}
+
+// Text Decoration
+@each $text-decoration-prop, $text-decoration-value in $text-decoration {
+	.#{$text-decoration-prop} {
+		-webkit-text-decoration: $text-decoration-value;
+		text-decoration: $text-decoration-value;
+	}
+}
+
+// Text Transform
+@each $text-transform-prop, $text-transform-value in $text-transform {
+	.#{$text-transform-prop} {
+		text-transform: $text-transform-value;
+	}
+}
+
+// Whitespace
+@each $whitespace-prop, $whitespace-value in $whitespace {
+	.#{$whitespace-prop} {
+		white-space: $whitespace-value;
+	}
+}
+
+// Word Break
+@each $word-break-prop, $word-break-value in $word-break {
+	.#{$word-break-prop} {
+		word-break: $word-break-value;
+	}
+}
+
+// BACKGROUNDS
+// Background Attachment
+@each $background-attachment-prop, $background-attachment-value in $background-attachment {
+	.#{$background-attachment-prop} {
+		background-attachment: $background-attachment-value;
+	}
+}
+
+// Background Position
+@each $background-position-prop, $background-position-value in $background-position {
+	.#{$background-position-prop} {
+		background-position: $background-position-value;
+	}
+}
+
+// Background Repeat
+@each $background-repeat-prop, $background-repeat-value in $background-repeat {
+	.#{$background-repeat-prop} {
+		background-repeat: $background-repeat-value;
+	}
+}
+
+// Background Size
+@each $background-size-prop, $background-size-value in $background-size {
+	.#{$background-size-prop} {
+		background-size: $background-size-value;
+	}
+}
+
+// Background Image
+@each $background-image-prop, $background-image-value in $background-image {
+	.#{$background-image-prop} {
+		background-image: $background-image-value;
+	}
+}
+
+// BORDERS
+// Border Radius
+@each $border-radius-prop, $border-radius-value in $border-radius {
+	$param: str-slice(#{$border-radius-prop}, 1, 2);
+
+	@if $param == "t-" {
+		.rounded-#{$border-radius-prop} {
+			border-top-left-radius: $border-radius-value;
+			border-top-right-radius: $border-radius-value;
+		}
+	} @else if $param == "r-" {
+		.rounded-#{$border-radius-prop} {
+			border-top-right-radius: $border-radius-value;
+			border-bottom-right-radius: $border-radius-value;
+		}
+	} @else if $param == "b-" {
+		.rounded-#{$border-radius-prop} {
+			border-bottom-right-radius: $border-radius-value;
+			border-bottom-left-radius: $border-radius-value;
+		}
+	} @else if $param == "l-" {
+		.rounded-#{$border-radius-prop} {
+			border-top-left-radius: $border-radius-value;
+			border-bottom-left-radius: $border-radius-value;
+		}
+	} @else if $param == "tl" {
+		.rounded-#{$border-radius-prop} {
+			border-top-left-radius: $border-radius-value;
+		}
+	} @else if $param == "tr" {
+		.rounded-#{$border-radius-prop} {
+			border-top-right-radius: $border-radius-value;
+		}
+	} @else if $param == "br" {
+		.rounded-#{$border-radius-prop} {
+			border-bottom-right-radius: $border-radius-value;
+		}
+	} @else if $param == "bl" {
+		.rounded-#{$border-radius-prop} {
+			border-bottom-left-radius: $border-radius-value;
+		}
+	} @else if $param == "no" {
+		.rounded-#{$border-radius-prop} {
+			border-radius: $border-radius-value;
+		}
+	} @else if $param == "fu" {
+		.rounded-#{$border-radius-prop} {
+			border-radius: $border-radius-value;
+		}
+	} @else {
+		.rounded-#{$border-radius-prop} {
+			border-radius: $border-radius-value;
+		}
+	}
+}
+
+// Border Width
+@each $border-width-prop, $border-width-value in $border-width {
+	$param: str-slice(#{$border-width-prop}, 1, 2);
+
+	@if $param == "t-" {
+		.border-#{$border-width-prop} {
+			border-top-width: $border-width-value;
+		}
+	} @else if $param == "r-" {
+		.border-#{$border-width-prop} {
+			border-right-width: $border-width-value;
+		}
+	} @else if $param == "b-" {
+		.border-#{$border-width-prop} {
+			border-bottom-width: $border-width-value;
+		}
+	} @else if $param == "l-" {
+		.border-#{$border-width-prop} {
+			border-left-width: $border-width-value;
+		}
+	} @else {
+		.border-#{$border-width-prop} {
+			border-width: $border-width-value;
+		}
+	}
+}
+
+// Border Style
+@each $border-style-prop, $border-style-value in $border-style {
+	.#{$border-style-prop} {
+		border-style: $border-style-value;
+	}
+}
+
+// EFFECTS
+// Box Shadow
+@each $box-shadow-prop, $box-shadow-value in $box-shadow {
+	.shadow-#{$box-shadow-prop} {
+		box-shadow: $box-shadow-value;
+	}
+}
+
+// Blend Modes
+@each $blend-mode-prop, $blend-mode-value in $blend-mode {
+	.blend-#{$blend-mode-prop} {
+		mix-blend-mode: $blend-mode-value;
+	}
+}
+
+// Opacity
+@each $opacity-prop, $opacity-value in $opacity {
+	.#{$opacity-prop} {
+		opacity: $opacity-value;
+	}
+}
+
+// Hover Opacity
+@each $hover-opacity-prop, $hover-opacity-value in $hover-opacity {
+	.hover\:#{$hover-opacity-prop}:hover {
+		opacity: $hover-opacity-value;
+	}
+}
+
+// INTERACTIVITY
+// Cursor
+@each $cursor-prop, $cursor-value in $cursor {
+	.#{$cursor-prop} {
+		cursor: $cursor-value;
+	}
+}
+
+// User Select
+@each $user-select-prop, $user-select-value in $user-select {
+	.#{$user-select-prop} {
+		-webkit-user-select: $user-select-value;
+		-moz-user-select: $user-select-value;
+		-ms-user-select: $user-select-value;
+		user-select: $user-select-value;
+	}
+}
+
+// Container
+@mixin setPropertyPartial($css-class, $config-propery-value, $config-property, $breakpoint-prop) {
+	.#{$breakpoint-prop}\:#{$config-property} {
+		#{$css-class}: $config-propery-value;
+	}
+}
+
+@mixin setMargin($direction-value, $margin-value, $config-property, $breakpoint-prop) {
+	@if $direction-value == "y" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin-top: $margin-value;
+			margin-bottom: $margin-value;
+		}
+	} @else if $direction-value == "x" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin-left: $margin-value;
+			margin-right: $margin-value;
+		}
+	} @else if $direction-value == "t" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin-top: $margin-value;
+		}
+	} @else if $direction-value == "r" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin-right: $margin-value;
+		}
+	} @else if $direction-value == "-r" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin-right: -$margin-value;
+		}
+	} @else if $direction-value == "b" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin-bottom: $margin-value;
+		}
+	} @else if $direction-value == "l" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin-left: $margin-value;
+		}
+	} @else if $direction-value == "auto" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin-left: $margin-value;
+			margin-right: $margin-value;
+		}
+	} @else {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			margin: $margin-value;
+		}
+	}
+}
+
+@mixin setPadding($direction-value, $padding-value, $config-property, $breakpoint-prop) {
+	@if $direction-value == "y" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			padding-top: $padding-value;
+			padding-bottom: $padding-value;
+		}
+	} @else if $direction-value == "x" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			padding-left: $padding-value;
+			padding-right: $padding-value;
+		}
+	} @else if $direction-value == "t" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			padding-top: $padding-value;
+		}
+	} @else if $direction-value == "r" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			padding-right: $padding-value;
+		}
+	} @else if $direction-value == "b" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			padding-bottom: $padding-value;
+		}
+	} @else if $direction-value == "l" {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			padding-left: $padding-value;
+		}
+	} @else {
+		.#{$breakpoint-prop}\:#{$config-property} {
+			padding: $padding-value;
+		}
+	}
+}
+
+@each $breakpoint-prop, $breakpoint-value in $media {
+	@if $breakpoint-value == 991px {
+		@media (max-width: $breakpoint-value) {
+			// Display
+			@include setPropertyPartial("display", none, "hidden", $breakpoint-prop);
+			@include setPropertyPartial("display", block, "block", $breakpoint-prop);
+
+			// Flex Direction
+			@include setPropertyPartial("flex-direction", column, "flex-col", $breakpoint-prop);
+
+			// Flex Wrap
+			@include setPropertyPartial("flex-wrap", wrap, "flex-wrap", $breakpoint-prop);
+
+			// Justify Content
+			@include setPropertyPartial("justify-content", center, "justify-center", $breakpoint-prop);
+
+			// Width
+			@include setPropertyPartial("width", 100%, "w-full", $breakpoint-prop);
+			@include setPropertyPartial("width", 3px, "w-3", $breakpoint-prop);
+
+			// Max Width
+			@include setPropertyPartial("max-width", 100%, "max-w-full", $breakpoint-prop);
+
+			// Font Size
+			@include setPropertyPartial("font-size", 12px, "text-12", $breakpoint-prop);
+			@include setPropertyPartial("font-size", 28px, "text-28", $breakpoint-prop);
+			@include setPropertyPartial("font-size", 30px, "text-30", $breakpoint-prop);
+			@include setPropertyPartial("font-size", 50px, "text-50", $breakpoint-prop);
+
+			// Margin
+			@include setMargin(" ", 0, "m-0", $breakpoint-prop);
+			@include setMargin("auto", auto, "mx-auto", $breakpoint-prop);
+			@include setMargin("-r", 18px, "-mr-18", $breakpoint-prop);
+
+			// Text Alignment
+			@include setPropertyPartial("text-align", center, "text-center", $breakpoint-prop);
+		}
+	} @else if $breakpoint-value == 1400px {
+		@media (max-width: $breakpoint-value) {
+			// Padding
+			@include setPadding("x", 40px, "px-40", $breakpoint-prop);
+
+			// Flex Direction
+			@include setPropertyPartial("flex-direction", column, "flex-col", $breakpoint-prop);
+
+			// Justify Content
+			@include setPropertyPartial("justify-content", center, "justify-center", $breakpoint-prop);
+
+			// Margin
+			@include setMargin("auto", auto, "mx-auto", $breakpoint-prop);
+			@include setMargin("t", 40px, "mt-40", $breakpoint-prop);
+			@include setMargin(" ", 40px, "m-40", $breakpoint-prop);
+			@include setMargin("l", 0, "ml-0", $breakpoint-prop);
+			@include setMargin("t", 45px, "mt-45", $breakpoint-prop);
+
+			// Grid Template Columns
+			@include setPropertyPartial("grid-template-columns", repeat(3, minmax(0, 1fr)), "grid-cols-3", $breakpoint-prop);
+		}
+	} @else if $breakpoint-value == 1190px {
+		@media (max-width: $breakpoint-value) {
+			// Align Items
+			@include setPropertyPartial("align-items", center, "items-center", $breakpoint-prop);
+			@include setPropertyPartial("align-self", center, "self-center", $breakpoint-prop);
+
+			// Justify Content
+			@include setPropertyPartial("justify-content", center, "justify-center", $breakpoint-prop);
+
+			// Flex Direction
+			@include setPropertyPartial("flex-direction", column, "flex-col", $breakpoint-prop);
+
+			// Height
+			@include setPropertyPartial("height", auto, "h-auto", $breakpoint-prop);
+			@include setPropertyPartial("height", 480px, "h-480", $breakpoint-prop);
+
+			// Margin
+			@include setMargin("x", 0, "mx-0", $breakpoint-prop);
+			@include setMargin("y", 60px, "my-60", $breakpoint-prop);
+			@include setMargin("t", 60px, "mt-60", $breakpoint-prop);
+			@include setMargin("t", 0, "mt-0", $breakpoint-prop);
+			@include setMargin(" ", 0, "m-0", $breakpoint-prop);
+
+			// Text Alignment
+			@include setPropertyPartial("text-align", center, "text-center", $breakpoint-prop);
+
+			// Order
+			@include setPropertyPartial("order", -1, "-order-1", $breakpoint-prop);
+
+			// Display
+			@include setPropertyPartial("display", flex, "flex", $breakpoint-prop);
+			@include setPropertyPartial("display", none, "hidden", $breakpoint-prop);
+
+			// Padding
+			@include setPadding("x", 40px, "px-40", $breakpoint-prop);
+
+			// Font Size
+			@include setPropertyPartial("font-size", 100px, "text-100", $breakpoint-prop);
+		}
+	} @else if $breakpoint-value == 1700px {
+		@media (max-width: $breakpoint-value) {
+			// Grid Template Columns
+			@include setPropertyPartial("grid-template-columns", repeat(4, minmax(0, 1fr)), "grid-cols-4", $breakpoint-prop);
+
+			// Margin
+			@include setMargin("t", 100px, "mt-100", $breakpoint-prop);
+		}
+	} @else if $breakpoint-value == 1090px {
+		@media (max-width: $breakpoint-value) {
+			// Grid Template Columns
+			@include setPropertyPartial("grid-template-columns", repeat(2, minmax(0, 1fr)), "grid-cols-2", $breakpoint-prop);
+		}
+	} @else if $breakpoint-value == 776px {
+		@media (max-width: $breakpoint-value) {
+			// Grid Template Columns
+			@include setPropertyPartial("grid-template-columns", repeat(1, minmax(0, 1fr)), "grid-cols-1", $breakpoint-prop);
+
+			// Display
+			@include setPropertyPartial("display", none, "hidden", $breakpoint-prop);
+
+			// Margin
+			@include setMargin(" ", 0, "m-0", $breakpoint-prop);
+
+			// Padding
+			@include setPadding("t", 95px, "pt-95", $breakpoint-prop);
+		}
+	} @else if $breakpoint-value == 1800px {
+		@media (max-width: $breakpoint-value) {
+			// Display
+			@include setPropertyPartial("display", block, "block", $breakpoint-prop);
+		}
+	} @else if $breakpoint-value == 1300px {
+		@media (max-width: $breakpoint-value) {
+			// Max Width
+			@include setPropertyPartial("max-width", 700px, "max-w-700", $breakpoint-prop);
+		}
+	} @else if $breakpoint-value == 580px {
+		@media (max-width: $breakpoint-value) {
+			// Grid Template Columns
+			@include setPropertyPartial("grid-template-columns", repeat(1, minmax(0, 1fr)), "grid-cols-1", $breakpoint-prop);
+
+			// Max Width
+			@include setPropertyPartial("max-width", 100%, "max-w-full", $breakpoint-prop);
+		}
+	}
+}
