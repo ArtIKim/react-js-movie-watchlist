@@ -10,7 +10,7 @@ export const Header = () => {
 
             <ul className="default flex">
                 <li>
-                    <Link className="text-white" to="/">
+                    <Link className="text-white" to="/watchlist">
                         Watch List
                     </Link>
                 </li>

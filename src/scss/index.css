@@ -338,6 +338,10 @@ button[disabled] {
   bottom: 0;
 }
 
+.b-40 {
+  bottom: 40px;
+}
+
 .l-0 {
   left: 0;
 }

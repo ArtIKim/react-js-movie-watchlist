@@ -1,23 +1,57 @@
 import React, { createContext, useReducer, useEffect } from "react";
-import AppReducer from "./AppReducer";
+import { AppReducer } from "./AppReducer";
 
-// initial state
+// Initial State
 const initialState = {
-    watchlist: [],
-    watched: [],
+    watchlist: JSON.parse(localStorage.getItem("MOVIE_APP_WATCHLIST")) || [],
+    watched: JSON.parse(localStorage.getItem("MOVIE_APP_WATCHED")) || [],
 };
 
-// create context
+// Global Context
 export const GlobalContext = createContext(initialState);
 
-// provier components
-export const GlobalProvider = (props) => {
+// Global Provider
+export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
-    // actions
+    useEffect(() => {
+        localStorage.setItem("MOVIE_APP_WATCHLIST", JSON.stringify(state.watchlist));
+        localStorage.setItem("MOVIE_APP_WATCHED", JSON.stringify(state.watched));
+    }, [state]);
+
+    // Actions
     const addMovieToWatchlist = (movie) => {
-        dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie });
+        dispatch({
+            type: "ADD_MOVIE_TO_WATCHLIST",
+            payload: movie,
+        });
     };
 
-    return <GlobalContext.Provider value={{ watchlist: state.watchlist, watched: state.watched, addMovieToWatchlist }}>{props.children}</GlobalContext.Provider>;
+    const removeMovieFromWatchlist = (id) => {
+        dispatch({
+            type: "REMOVE_MOVIE_FROM_WATCHLIST",
+            payload: id,
+        });
+    };
+
+    const addMovieToWatched = (movie) => {
+        dispatch({
+            type: "ADD_MOVIE_TO_WATCHED",
+            payload: movie,
+        });
+    };
+
+    return (
+        <GlobalContext.Provider
+            value={{
+                watchlist: state.watchlist,
+                watched: state.watched,
+                addMovieToWatchlist,
+                removeMovieFromWatchlist,
+                addMovieToWatched,
+            }}
+        >
+            {children}
+        </GlobalContext.Provider>
+    );
 };

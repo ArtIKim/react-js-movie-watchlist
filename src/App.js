@@ -16,7 +16,7 @@ function App() {
                 <Header />
 
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path="/watchlist">
                         <Watchlist />
                     </Route>
 

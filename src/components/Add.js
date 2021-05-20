@@ -22,7 +22,7 @@ export const Add = () => {
         setQuery(e.target.value);
 
         const data = await getMovies(e.target.value);
-        console.log(data.results);
+        // console.log(data.results);
 
         setResults(data.results);
     };
@@ -31,7 +31,7 @@ export const Add = () => {
         <div className="max-w-600 mx-auto px-20 py-80">
             <input className="w-full h-44 p-10" type="text" placeholder="Search for a movie..." value={query} onChange={onChange} />
 
-            {results.length > 0 && (
+            {results.length > 0 ? (
                 <ul className="default mt-20">
                     {results.map((movie) => (
                         <li key={movie.id}>
@@ -39,6 +39,8 @@ export const Add = () => {
                         </li>
                     ))}
                 </ul>
+            ) : (
+                ""
             )}
         </div>
     );
