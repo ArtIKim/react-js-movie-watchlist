@@ -3,11 +3,12 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 export const ResultCard = ({ movie }) => {
-    const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
+    const { addMovieToWatchlist, watchlist, watched } = useContext(GlobalContext);
 
-    let storedMovie = watchlist.find((o) => o.id === movie.id);
+    let storedMovieWatchlist = watchlist.find((o) => o.id === movie.id);
+    let storedMovieWatced = watched.find((o) => o.id === movie.id);
 
-    const watchlistDisabled = storedMovie ? true : false;
+    const watchlistDisabled = storedMovieWatchlist || storedMovieWatced ? true : false;
 
     return (
         <div className="flex mt-20">

@@ -41,6 +41,20 @@ export const GlobalProvider = ({ children }) => {
         });
     };
 
+    const moveToWatchlist = (movie) => {
+        dispatch({
+            type: "MOVE_TO_WATCHLIST",
+            payload: movie,
+        });
+    };
+
+    const removeFromWatched = (id) => {
+        dispatch({
+            type: "REMOVE_FROM_WATCHED",
+            payload: id,
+        });
+    };
+
     return (
         <GlobalContext.Provider
             value={{
@@ -49,6 +63,8 @@ export const GlobalProvider = ({ children }) => {
                 addMovieToWatchlist,
                 removeMovieFromWatchlist,
                 addMovieToWatched,
+                moveToWatchlist,
+                removeFromWatched,
             }}
         >
             {children}

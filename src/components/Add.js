@@ -22,7 +22,7 @@ export const Add = () => {
         setQuery(e.target.value);
 
         const data = await getMovies(e.target.value);
-        // console.log(data.results);
+        console.log(data.results);
 
         setResults(data.results);
     };
